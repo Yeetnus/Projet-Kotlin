@@ -39,11 +39,11 @@ data class TicketDeCaisse(val Commande: Commande) {
         }
 
 
-        ticket.append("\nTotalHt: ${Commande.getMontantHT()}\n\n")
+        ticket.append("\nTotalHt: ${round(Commande.getMontantHT() * 100) / 100}\n\n")
 
-        ticket.append("Remise: ${Commande.getRemise()}\n")
-        ticket.append("Montant après remise: ${Commande.getMontantRemise()}\n")
-        ticket.append("Taxe: ${Commande.getTaxes()}\n")
+        ticket.append("Remise: ${round(Commande.getRemise() * 100) / 100}\n")
+        ticket.append("Montant après remise: ${round(Commande.getMontantRemise() * 100) / 100}\n")
+        ticket.append("Taxe: ${round(Commande.getTaxes() * 100) / 100}\n")
         ticket.append("Total TTC: ${Commande.getMontantTTC()}\n")
 
         return ticket

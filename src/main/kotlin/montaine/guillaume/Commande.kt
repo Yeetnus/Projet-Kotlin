@@ -7,7 +7,7 @@ import kotlin.math.round
 data class Commande(val Boutique: Boutique, val Lots: List<Lot>) {
 
     fun getMontantHT(): Double {
-        return round(this.Lots.sumOf { it.getPrix() } * 100) / 100
+        return this.Lots.sumOf { it.getPrix() }
     }
 
     fun getRemise(): Double {
@@ -26,7 +26,7 @@ data class Commande(val Boutique: Boutique, val Lots: List<Lot>) {
         } else {
             result = montant*0.1
         }
-        return round(result * 100) / 100
+        return result
     }
 
     fun getMontantRemise(): Double {
@@ -38,7 +38,7 @@ data class Commande(val Boutique: Boutique, val Lots: List<Lot>) {
     }
 
     fun getMontantTTC(): Double {
-        return round(return this.getMontantRemise() + this.getTaxes() * 100) / 100
+        return round((this.getMontantRemise() + this.getTaxes()) * 100) / 100
     }
 
 }
