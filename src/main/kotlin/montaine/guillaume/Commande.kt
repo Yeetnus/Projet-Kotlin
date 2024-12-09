@@ -10,7 +10,7 @@ data class Commande(val Boutique: Boutique, val Lots: List<Lot>) {
     }
 
     fun getMontantHT(): Double {
-        return this.Lots.sumOf { it.getPrix() }
+        return String.format("%.2f", this.Lots.sumOf { it.getPrix() }).toDouble()
     }
 
     fun getRemise(): Double {
@@ -38,7 +38,7 @@ data class Commande(val Boutique: Boutique, val Lots: List<Lot>) {
     }
 
     fun getMontantTTC(): Double {
-        return this.getMontantRemise() + this.getTaxes()
+        return String.format("%.2f", this.getMontantRemise() + this.getTaxes()).toDouble()
     }
 
 }
