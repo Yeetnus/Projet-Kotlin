@@ -1,11 +1,10 @@
 
 package org.example.montaine.guillaume.tests
 
+import Lot
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldBe
-import io.kotest.matchers.shouldNotBe
 import montaine.guillaume.Manga
-import org.example.montaine.guillaume.montaine.guillaume.Lot
 
 class LotTest : BehaviorSpec({
 
@@ -15,7 +14,7 @@ class LotTest : BehaviorSpec({
             val lot = Lot(3, Manga("Naruto", 10.0))
 
             When("je lis la quantité") {
-                val quantite = lot.quantite
+                val quantite = lot.Quantite
 
                 Then("la quantité est 3") {
                     quantite shouldBe 3
@@ -30,7 +29,7 @@ class LotTest : BehaviorSpec({
             val lot = Lot(3, Manga("Naruto", 10.0))
 
             When("je lis le manga") {
-                val manga = lot.manga
+                val manga = lot.Manga
 
                 Then("le manga est Naruto") {
                     manga.Titre shouldBe "Naruto"
