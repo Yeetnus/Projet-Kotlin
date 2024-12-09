@@ -1,8 +1,8 @@
 import montaine.guillaume.Manga
 
-data class Lot(val quantite: Int, val manga: Manga) {
+data class Lot(val Quantite: Int, val Manga: Manga) {
 
     fun getPrix(): Double {
-        return this.quantite * this.manga.Prix
+        return this.Quantite * this.Manga.Prix
     }
 }

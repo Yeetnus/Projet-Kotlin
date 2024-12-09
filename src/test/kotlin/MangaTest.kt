@@ -15,7 +15,7 @@ class MangaTest : BehaviorSpec({
             val manga = Manga("One Piece",5.0)
 
             When("je lis le titre") {
-                val titre = manga.titre
+                val titre = manga.Titre
 
                 Then("le titre est One Piece") {
                     titre shouldNotBe null
@@ -30,7 +30,7 @@ class MangaTest : BehaviorSpec({
             val manga = Manga("One Piece",5.0)
 
             When("je lis le prix") {
-                val prix = manga.prix
+                val prix = manga.Prix
 
                 Then("le prix est 5.0") {
                     prix shouldNotBe null
@@ -45,7 +45,7 @@ class MangaTest : BehaviorSpec({
             val manga = Manga("One Piece",-5.0)
 
             When("je lis le prix") {
-                val prix = manga.prix
+                val prix = manga.Prix
 
                 Then("le prix est 5.0") {
                     val exception= shouldThrow<IllegalArgumentException> {
