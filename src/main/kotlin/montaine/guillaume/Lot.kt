@@ -12,4 +12,8 @@ data class Lot(val quantite : Int, val manga : Manga) {
         return manga
     }
 
+    fun getPrix(): Double {
+        return this.getQuantite() * this.getManga().getPrix()
+    }
+
 }
