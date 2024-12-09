@@ -5,10 +5,6 @@ import montaine.guillaume.Boutique
 
 data class Commande(val Boutique: Boutique, val Lots: List<Lot>) {
 
-    fun getNbMangas(): Int {
-        return this.Lots.sumOf { it.Quantite }
-    }
-
     fun getMontantHT(): Double {
         return String.format("%.2f", this.Lots.sumOf { it.getPrix() }).toDouble()
     }
