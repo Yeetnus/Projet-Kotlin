@@ -4,8 +4,11 @@ package org.example.montaine.guillaume.tests
 import Lot
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldNotBe
+import montaine.guillaume.Boutique
 import montaine.guillaume.Manga
 import montaine.guillaume.TicketDeCaisse
+import org.example.montaine.guillaume.montaine.guillaume.Commande
+import org.example.montaine.guillaume.montaine.guillaume.Pays
 
 class GuillaumeTest : BehaviorSpec({
 
@@ -14,10 +17,11 @@ class GuillaumeTest : BehaviorSpec({
         given("un ticket") {
             val lot = Lot(3, Manga("Naruto", 10.0))
             val lots = listOf(lot)
-            val ticket = TicketDeCaisse(lots)
+            val commande = Commande(Boutique(Pays.FRANCE), lots)
+            val ticket = TicketDeCaisse(commande)
 
             And("un 2e ticket") {
-                val ticket2 = TicketDeCaisse(lots)
+                val ticket2 = TicketDeCaisse(commande)
 
                 When("je lis les 2 identifiants") {
                     val id1 = ticket.Id
