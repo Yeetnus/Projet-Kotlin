@@ -18,7 +18,7 @@ data class TicketDeCaisse(val Commande: Commande, val Id: String = ULID().nextUL
         val Remise: Double = Commande.getRemise()
 
         val ticket: StringBuffer = StringBuffer()
-        ticket.append("Ticket $Id\n\n")
+        ticket.append("Ticket ${Id}\n\n")
 
         val totalesDesLots: List<Double> = Commande.Lots.map { lot -> lot.Quantite*lot.Manga.Prix }
 
@@ -27,9 +27,10 @@ data class TicketDeCaisse(val Commande: Commande, val Id: String = ULID().nextUL
         }
 
 
-        ticket.append("TotalHt: ${Commande.getMontantHT()}\n\n")
+        ticket.append("\nTotalHt: ${Commande.getMontantHT()}\n\n")
 
         ticket.append("Remise: ${Commande.getRemise()}\n")
+        ticket.append("Montant après remise: ${Commande.getMontantRemise()}\n")
         ticket.append("Taxe: ${Commande.getTaxes()}\n")
         ticket.append("Total TTC: ${Commande.getMontantTTC()}\n")
 
