@@ -8,6 +8,12 @@ import kotlin.math.round
 
 data class TicketDeCaisse(val Commande: Commande) {
 
+    init {
+        if (Commande == null) {
+            throw IllegalArgumentException("Aucune commande n'a été renseignée")
+        }
+    }
+
     companion object {
         private var counter: Int = 0
     }

@@ -6,6 +6,15 @@ import kotlin.math.round
 
 data class Commande(val Boutique: Boutique, val Lots: List<Lot>) {
 
+    init {
+        if (Boutique == null) {
+            throw IllegalArgumentException("Aucune boutique n'a été renseignée")
+        }
+        if (Lots == null) {
+            throw IllegalArgumentException("Aucun lot n'a été renseigné")
+        }
+    }
+
     fun getMontantHT(): Double {
         return this.Lots.sumOf { it.getPrix() }
     }
