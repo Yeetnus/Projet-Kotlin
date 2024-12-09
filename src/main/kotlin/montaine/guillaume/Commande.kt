@@ -2,12 +2,12 @@ package org.example.montaine.guillaume.montaine.guillaume
 
 import Lot
 import montaine.guillaume.Boutique
-import java.util.*
+import kotlin.math.round
 
 data class Commande(val Boutique: Boutique, val Lots: List<Lot>) {
 
     fun getMontantHT(): Double {
-        return String.format(Locale.US, "%.2f", this.Lots.sumOf { it.getPrix() }).toDouble()
+        return round(this.Lots.sumOf { it.getPrix() } * 100) / 100
     }
 
     fun getRemise(): Double {
@@ -26,7 +26,7 @@ data class Commande(val Boutique: Boutique, val Lots: List<Lot>) {
         } else {
             result = montant*0.1
         }
-        return String.format(Locale.US, "%.2f", result).toDouble()
+        return round(result * 100) / 100
     }
 
     fun getMontantRemise(): Double {
@@ -34,11 +34,11 @@ data class Commande(val Boutique: Boutique, val Lots: List<Lot>) {
     }
 
     fun getTaxes(): Double {
-        return String.format(Locale.US, "%.2f", (this.getMontantRemise()*this.Boutique.Pays.taxes)).toDouble()
+        return this.getMontantRemise()*this.Boutique.Pays.taxes
     }
 
     fun getMontantTTC(): Double {
-        return String.format(Locale.US, "%.2f", this.getMontantRemise() + this.getTaxes()).toDouble()
+        return round(return this.getMontantRemise() + this.getTaxes() * 100) / 100
     }
 
 }

@@ -5,6 +5,7 @@ import Lot
 import de.huxhorn.sulky.ulid.ULID;
 import org.example.montaine.guillaume.montaine.guillaume.Commande
 import java.util.*
+import kotlin.math.round
 
 
 data class TicketDeCaisse(val Commande: Commande) {
@@ -33,7 +34,7 @@ data class TicketDeCaisse(val Commande: Commande) {
         ticket.append("Ticket ${Id}\n\n")
 
         for (lot in Commande.Lots) {
-            val montant = String.format(Locale.US, "%.2f", lot.Quantite*lot.Manga.Prix).toDouble()
+            val montant = round(lot.Quantite*lot.Manga.Prix * 100) / 100
             ticket.append("${lot.Manga.Titre} x ${lot.Quantite} = ${montant}€\n")
         }
 
