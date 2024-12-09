@@ -11,19 +11,22 @@ data class Commande(val Boutique: Boutique, val Lots: List<Lot>) {
     }
 
     fun getRemise(): Double {
-        if (this.getMontantHT() < 150) {
-            return 0.0
-        } else if (this.getMontantHT() < 200) {
-            return this.getMontantHT()*0.02
-        } else if (this.getMontantHT() < 300) {
-            return this.getMontantHT()*0.03
-        } else if (this.getMontantHT() < 500) {
-            return this.getMontantHT()*0.05
-        } else if (this.getMontantHT() < 1000) {
-            return this.getMontantHT()*0.07
+        val montant = this.getMontantHT()
+        val result: Double
+        if (montant < 150) {
+            result = 0.0
+        } else if (montant < 200) {
+            result = montant*0.02
+        } else if (montant < 300) {
+            result = montant*0.03
+        } else if (montant < 500) {
+            result = montant*0.05
+        } else if (montant < 1000) {
+            result = montant*0.07
         } else {
-            return this.getMontantHT()*0.1
+            result = montant*0.1
         }
+        return String.format(Locale.US, "%.2f", result).toDouble()
     }
 
     fun getMontantRemise(): Double {
@@ -31,7 +34,7 @@ data class Commande(val Boutique: Boutique, val Lots: List<Lot>) {
     }
 
     fun getTaxes(): Double {
-        return this.getMontantRemise()*this.Boutique.Pays.taxes
+        return String.format(Locale.US, "%.2f", (this.getMontantRemise()*this.Boutique.Pays.taxes)).toDouble()
     }
 
     fun getMontantTTC(): Double {
