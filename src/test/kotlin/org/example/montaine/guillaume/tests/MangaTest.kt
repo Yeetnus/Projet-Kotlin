@@ -1,12 +1,11 @@
 
-package org.example.montaine.guillaume.tests
+package org.example.montaine.guillaume.tests.org.example.montaine.guillaume.tests
 
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import montaine.guillaume.Manga
-import montaine.guillaume.TicketDeCaisse
 
 class MangaTest : BehaviorSpec({
 
