@@ -10,7 +10,7 @@ data class Commande(val Boutique: Boutique, val Lots: List<Lot>) {
     }
 
     fun getMontantHT(): Double {
-        return this.Lots.sumOf { it.getPrix()*it.Quantite }
+        return this.Lots.sumOf { it.getPrix() }
     }
 
     fun getRemise(): Double {
