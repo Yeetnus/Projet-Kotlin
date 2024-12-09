@@ -2,11 +2,12 @@ package org.example.montaine.guillaume.montaine.guillaume
 
 import Lot
 import montaine.guillaume.Boutique
+import java.util.*
 
 data class Commande(val Boutique: Boutique, val Lots: List<Lot>) {
 
     fun getMontantHT(): Double {
-        return String.format("%.2f", this.Lots.sumOf { it.getPrix() }).toDouble()
+        return String.format(Locale.US, "%.2f", this.Lots.sumOf { it.getPrix() }).toDouble()
     }
 
     fun getRemise(): Double {
@@ -34,7 +35,7 @@ data class Commande(val Boutique: Boutique, val Lots: List<Lot>) {
     }
 
     fun getMontantTTC(): Double {
-        return String.format("%.2f", this.getMontantRemise() + this.getTaxes()).toDouble()
+        return String.format(Locale.US, "%.2f", this.getMontantRemise() + this.getTaxes()).toDouble()
     }
 
 }
