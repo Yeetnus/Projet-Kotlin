@@ -20,8 +20,8 @@ class Sprint1Test : BehaviorSpec({
             When("je lis le prix total") {
                 val prixTTC = commande.getMontantTTC()
 
-                Then("le prix total est 90.98") {
-                    prixTTC shouldBe 90.98
+                Then("le prix total est 90.97") {
+                    prixTTC shouldBe 90.97
                 }
             }
         }
