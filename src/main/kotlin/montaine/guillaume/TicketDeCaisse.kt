@@ -9,7 +9,7 @@ import org.example.montaine.guillaume.montaine.guillaume.Commande
 data class TicketDeCaisse(val Commande: Commande, val Id: String = ULID().nextULID()) {
 
     var TotalTtc: Double = 0.0
-    val Taxe: Double = 0.0
+    val Taxe: Double = Commande.Boutique.Pays.taxes
     val Remise: Double = 0.0
 
     fun printTicket(): StringBuffer {
