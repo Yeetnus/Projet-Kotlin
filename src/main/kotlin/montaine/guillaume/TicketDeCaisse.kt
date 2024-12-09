@@ -5,7 +5,7 @@ import Lot
 import de.huxhorn.sulky.ulid.ULID;
 
 
-data class TicketDeCaisse(val Id: String = ULID().nextULID(), val Lot: List<Lot>) {
+data class TicketDeCaisse(val Lot: List<Lot>, val Id: String = ULID().nextULID()) {
 
     var TotalTtc: Double = 0.0
     val Taxe: Double = 0.0
