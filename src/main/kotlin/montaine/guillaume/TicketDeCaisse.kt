@@ -1,8 +1,6 @@
 
 package montaine.guillaume
 
-import Lot
-import de.huxhorn.sulky.ulid.ULID;
 import org.example.montaine.guillaume.montaine.guillaume.Commande
 import java.util.*
 import kotlin.math.round
@@ -20,10 +18,6 @@ data class TicketDeCaisse(val Commande: Commande) {
         counter++
         Id = String.format("%02d", counter)
     }
-
-    var TotalTtc: Double = 0.0
-    val Taxe: Double = 0.0
-    val Remise: Double = 0.0
 
     fun printTicket(): StringBuffer {
 
